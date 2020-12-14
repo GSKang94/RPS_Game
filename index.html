@@ -4,15 +4,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Check your fate</title>
+    <script src="https://kit.fontawesome.com/a5e371ee46.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
+    <h1>Rock Paper Scissors</h1>
 
+    <label for="rounds">How many rounds?</label>
+    <input type="text" name="rounds" id="rounds" required minlength="1" maxlength="2">
+
+    <div>
+        <button id="rock-btn"><i class="far fa-hand-rock"></i></button>
+        <button id="paper-btn"><i class="far fa-hand-paper"></i></button>
+        <button id="scissors-btn"><i class="far fa-hand-scissors"></i></button>
+    </div>
+    <div id="final-score"></div>
 
     <script type="text/javascript" src="game.js"></script>
 
 </body>
 
 </html>
+
+<!-- 
+input box to enter rounds
+3 user choice buttons that change scores on click
+
+
+ -->

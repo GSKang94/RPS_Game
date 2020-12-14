@@ -1,3 +1,17 @@
+let chooseRounds = document.getElementById('rounds');
+let finalScore = document.getElementById('final-score');
+
+
+// Player enter no. of game rounds
+chooseRounds.addEventListener("keydown", function (e) {
+    if (e.code === 'Enter')
+        for (let i = 1; i <= chooseRounds.value; i++) {
+            // give time to update and render
+            setTimeout(game, 100);
+            clearTimeout()
+        }
+})
+
 // Store Scores
 let playerScore = 0;
 let computerScore = 0;
@@ -12,12 +26,6 @@ let loserScore = () => {
     computerScore++;
 }
 
-let askUserRounds = () => {
-    let rounds = parseInt(prompt("How many rounds ?"));
-    for (let i = 1; i <= rounds; i++) {
-        game()
-    }
-}
 
 function game() {
 
@@ -59,14 +67,48 @@ function game() {
     }
     let final = playRound(playerSelection, computerSelection)
 
-    // console interface
-    console.log(computerSelection)
-    console.log(final)
-    console.log(`Your score is ${playerScore}`)
-    console.log(`Computer score is ${computerScore}`)
+
+    finalScore.textContent = `Your score is ${playerScore}
+     Computer score is ${computerScore}
+     ${final}`;
+
 }
 
-askUserRounds()
+
+// askUserRounds()
 
 
 
+
+
+
+// let askUserRounds = () => {
+//     let rounds = parseInt(prompt("How many rounds ?"));
+//     for (let i = 1; i <= rounds; i++) {
+//         game()
+//     }
+// }
+
+
+
+// console.log(chooseRounds)
+
+// let btn = document.getElementById('btn');
+
+// btn.addEventListener("click", function () {
+// console.log(chooseRounds.value.KeyboardEvent.code)
+// for (let i = 1; i <= chooseRounds.value; i++) {
+//     game()
+// }
+// })
+
+
+
+
+    // finalScore.textContent = final;
+
+    // console interface
+    // console.log(computerSelection)
+    // console.log(final)
+    // console.log(`Your score is ${playerScore}`)
+    // console.log(`Computer score is ${computerScore}`)
