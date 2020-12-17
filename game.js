@@ -1,6 +1,7 @@
 let chooseRounds = document.getElementById('rounds');
+let player_score = document.getElementById('player_score');
+let comp_score = document.getElementById('comp_score');
 let finalScore = document.getElementById('final-score');
-
 
 // Player enter no. of game rounds
 chooseRounds.addEventListener("keydown", function (e) {
@@ -8,27 +9,27 @@ chooseRounds.addEventListener("keydown", function (e) {
         for (let i = 1; i <= chooseRounds.value; i++) {
             // give time to update and render
             setTimeout(game, 100);
+
             clearTimeout()
         }
 })
 
 // Store Scores
-let playerScore = 0;
-let computerScore = 0;
+let player = 0;
+let computer = 0;
 
 let winnerScore = () => {
-    playerScore += 1;
-    computerScore ? computerScore -= 1 : 0;
+    player += 1;
+    // computer ? computer -= 1 : 0;
 }
 
 let loserScore = () => {
-    playerScore ? playerScore -= 1 : 0;
-    computerScore++;
+    // player ? player -= 1 : 0;
+    computer++;
 }
 
 
 function game() {
-
     let choice = ['rock', 'paper', 'scissors'];
 
     // Pick random choice
@@ -44,42 +45,40 @@ function game() {
 
     function playRound(player, comp) {
         if (player === comp) {
-            return "Try Again"
+            return "Same choice Try Again"
         } else if (player === choice[0] && comp === choice[1]) {
             loserScore()
-            return "You Lose! Paper wrap Rock"
+            return "Paper wrap Rock"
         } else if (player === choice[0] && comp === choice[2]) {
             winnerScore()
-            return "You Win! Rock beats Scissors"
+            return "Rock beats Scissors"
         } else if (player === choice[1] && comp === choice[0]) {
             winnerScore()
-            return "You Win! Paper wrap Rock"
+            return "Paper wrap Rock"
         } else if (player === choice[1] && comp === choice[2]) {
             loserScore()
-            return "You Lose! Scissors cut Paper"
+            return "Scissors cut Paper"
         } else if (player === choice[2] && comp === choice[0]) {
             loserScore()
-            return "You Lose! Rock beats Scissors"
+            return "Rock beats Scissors"
         } else if (player === choice[2] && comp === choice[1]) {
             winnerScore()
-            return "You Win! Scissors cut Paper"
+            return "Scissors cut Paper"
         }
+
     }
     let final = playRound(playerSelection, computerSelection)
-
-
-    finalScore.textContent = `Your score is ${playerScore}
-     Computer score is ${computerScore}
-     ${final}`;
-
+    console.log(computerSelection)
+    player_score.textContent = player;
+    comp_score.textContent = computer;
+    finalScore.textContent = player > computer ? `WINNER` : player === computer ? `TIE` : `LOSER`;
 }
 
 
+
+
+
 // askUserRounds()
-
-
-
-
 
 
 // let askUserRounds = () => {
@@ -110,5 +109,5 @@ function game() {
     // console interface
     // console.log(computerSelection)
     // console.log(final)
-    // console.log(`Your score is ${playerScore}`)
-    // console.log(`Computer score is ${computerScore}`)
+    // console.log(`Your score is ${player}`)
+    // console.log(`Computer score is ${computer}`)
