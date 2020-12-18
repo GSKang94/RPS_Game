@@ -77,7 +77,14 @@ function game() {
     }
 }
 
-
+// chooseRounds.addEventListener("keydown", function (e) {
+//     if (e.code === 'Enter') {
+//         chooseRounds.classList.add('fadeOut');
+//         scissorsBtn.classList.add('incSize');
+//         rockBtn.classList.add('incSize');
+//         paperBtn.classList.add('incSize')
+//     }
+// })
 
 
 
