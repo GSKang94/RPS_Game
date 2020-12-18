@@ -10,28 +10,34 @@
 </head>
 
 <body>
-    <h1>Rock Paper Scissors</h1>
+    <div id="main">
+        <h1>Rock Paper Scissors</h1>
 
-    <label for="rounds">How many rounds?</label>
-    <input type="text" name="rounds" id="rounds" required minlength="1" maxlength="2">
-
-    <div>
-        <button id="rock-btn"><i class="far fa-hand-rock"></i></button>
-        <button id="paper-btn"><i class="far fa-hand-paper"></i></button>
-        <button id="scissors-btn"><i class="far fa-hand-scissors"></i></button>
-    </div>
-    <div>
-        <div>
-            <h2>Player score</h2>
-            <h3 id="player_score">0</h3>
+        <div id="rounds">
+            <label for="rounds">How many rounds?</label>
+            <input type="text" name="rounds" id="input_rounds" required minlength="1" maxlength="2">
         </div>
-        <div>
-            <h2>Comp score</h2>
-            <h3 id="comp_score">0</h3>
+
+        <div id="buttons">
+            <i id="rock_btn" class="far fa-hand-rock"></i>
+            <i id="paper_btn" class="far fa-hand-paper"></i>
+            <i id="scissors_btn" class="far fa-hand-scissors"></i>
         </div>
+
+        <div id="scores">
+            <div>
+                <h2>Player score</h2>
+                <h3 id="player_score">0</h3>
+            </div>
+            <div>
+                <h2>Comp score</h2>
+                <h3 id="comp_score">0</h3>
+            </div>
+        </div>
+
+        <div id="final_score"></div>
     </div>
 
-    <div id="final-score"></div>
 
     <script type="text/javascript" src="game.js"></script>
 
@@ -44,7 +50,7 @@
 * 3 user choice buttons that change scores on click
 * Display both scores after each round
 * Display final result
-
 * Change prompt to button click
+
 * Add css
  -->
