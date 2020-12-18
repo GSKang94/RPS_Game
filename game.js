@@ -31,7 +31,7 @@ let cScore = 0;
 function game() {
 
     // check user selected rounds
-    if (chooseRounds.value > 0) {
+    if (chooseRounds.value > 1) {
 
         // Pick random choice
         function computerPlay() {
@@ -70,10 +70,13 @@ function game() {
 
         playerScore.textContent = pScore;
         compScore.textContent = cScore;
-        finalScore.textContent = pScore > cScore ? `WINNER` : pScore === cScore ? `TIE` : `LOSER`;
 
+        // console.log(typeof (chooseRounds.value))
         console.log(computerSelection)
         console.log(result)
+    } else if (chooseRounds.value == 1) {
+        chooseRounds.value--;
+        return finalScore.textContent = pScore > cScore ? `WINNER` : pScore === cScore ? `TIE` : `LOSER`;
     }
 }
 
