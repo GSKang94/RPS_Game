@@ -15,7 +15,19 @@
 
 body{
     background-color: #ffe9d6;
-    
+}
+
+.fa-redo-alt{
+    position: relative;
+    font-size: 1.2rem;
+    left: 8rem;
+    bottom: 1rem;
+    transition: 0.5s;
+    color: #8f384d;
+}
+
+.rotate{
+    transform: rotate(360deg);
 }
 
 #main{
@@ -70,11 +82,8 @@ body{
 }
 
 .far{
-    /* color: #fff; */
-    /* background-color: #fff; */
-    font-size: 2rem;
+    font-size: 2.3rem;
     transition: 0.3s;
-    /* text-shadow: -3px 5px #c74b16; */
 }
 
 .far:hover{
@@ -86,7 +95,7 @@ body{
     justify-content: space-between;
     width: 90%;
     margin: 0 auto;
-    margin-top: 3rem;
+    margin-top: 2rem;
 }
 
 .handAnime{
@@ -104,7 +113,7 @@ body{
 }
 
 .compHand{
-    transition:color 0.5s 1s;
+    transition:color 0.5s 0.5s;
     color: crimson;
 }
 
@@ -128,7 +137,17 @@ body{
 }
 
 @media only screen and (max-width : 480px) {
-    
+    h1{
+        font-size: 1.5rem;
+    }
+
+    .fa-redo-alt{
+        position: relative;
+        font-size: 1rem;
+        left: 2.9rem;
+        bottom: 1.2rem;
+    }
+
     #main{
         width: 90%;
         margin-top: 3rem;
@@ -144,6 +163,11 @@ body{
     
     #hands{
         width: 60%;
+    }
+
+    #scores{
+        margin-top: 3rem;
+        font-size: 0.9rem;
     }
     
 }

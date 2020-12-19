@@ -8,9 +8,33 @@ let rockBtn = document.getElementById('rock_btn');
 let paperBtn = document.getElementById('paper_btn');
 let scissorsBtn = document.getElementById('scissors_btn');
 
+let reload = document.getElementById('reload');
+
+// reload window for new game
+reload.onclick = () => {
+    reload.classList.add('rotate');
+    setTimeout(() => location.reload(), 1000);
+}
+
+// add animation classes
+let animate = () => {
+    input_rounds.classList.add('fadeOut');
+    scissorsBtn.classList.add('handAnime');
+    rockBtn.classList.add('handAnime');
+    paperBtn.classList.add('handAnime')
+}
+
+// Animation if player press enter
+input_rounds.addEventListener("keydown", function (e) {
+    if (e.code === 'Enter') {
+        animate()
+        comments.innerText = `Your turn`
+    }
+})
+
+
 let choice = ['rock', 'paper', 'scissors'];
 let playerSelection;
-
 
 rockBtn.onclick = () => {
     playerSelection = choice[0]
@@ -31,6 +55,7 @@ let cScore = 0;
 
 function game() {
 
+    animate();
     // check user selected rounds
     if (input_rounds.value > 0) {
 
@@ -135,16 +160,7 @@ function game() {
     }
 }
 
-// Animation if player press enter
-input_rounds.addEventListener("keydown", function (e) {
-    if (e.code === 'Enter') {
-        input_rounds.classList.add('fadeOut');
-        scissorsBtn.classList.add('handAnime');
-        rockBtn.classList.add('handAnime');
-        paperBtn.classList.add('handAnime')
-        comments.innerText = `Your turn`
-    }
-})
+
 
 
 
