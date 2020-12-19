@@ -26,9 +26,12 @@ let animate = () => {
 
 // Animation if player press enter
 input_rounds.addEventListener("keydown", function (e) {
-    if (e.code === 'Enter') {
+    if (e.key === 'Enter') {
         animate()
-        comments.innerText = `Your turn`
+        setTimeout(() => {
+            comments.innerText = `Your turn`
+        }, 1000);
+        comments.innerText = `Ready`
     }
 })
 
