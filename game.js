@@ -1,7 +1,7 @@
 let input_rounds = document.getElementById('input_rounds');
 let playerScore = document.getElementById('player_score');
 let compScore = document.getElementById('comp_score');
-// let comment = document.getElementById('comment');
+let comments = document.getElementById('comments');
 let finalScore = document.getElementById('final_score');
 
 let rockBtn = document.getElementById('rock_btn');
@@ -10,10 +10,6 @@ let scissorsBtn = document.getElementById('scissors_btn');
 
 let choice = ['rock', 'paper', 'scissors'];
 let playerSelection;
-
-// if (!input_rounds.value) {
-//     input_rounds.classList.add('vibrate')
-// }
 
 
 rockBtn.onclick = () => {
@@ -48,36 +44,69 @@ function game() {
 
         // core logic
         function playRound(player, comp) {
+
             if (player === comp) {
+                comments.innerText = `Comp turn`
+                setTimeout(() => comments.innerText = `Your turn`, 2000)
                 return `You both chose ${computerSelection}`
+
             } else if (player === choice[0] && comp === choice[1]) {
                 paperBtn.classList.add('compHand')
-                setTimeout(() => paperBtn.classList.remove('compHand'), 2000);
+                comments.innerText = `Comp turn`
+                setTimeout(() => {
+                    comments.innerText = `Your turn`
+                    paperBtn.classList.remove('compHand')
+                }, 2000);
                 cScore++;
                 return "Paper wrap Rock"
+
             } else if (player === choice[0] && comp === choice[2]) {
                 scissorsBtn.classList.add('compHand')
-                setTimeout(() => scissorsBtn.classList.remove('compHand'), 2000);
+                comments.innerText = `Comp turn`
+                setTimeout(() => {
+                    comments.innerText = `Your turn`
+                    scissorsBtn.classList.remove('compHand')
+                }, 2000);
                 pScore++;
                 return "Rock beats Scissors"
+
             } else if (player === choice[1] && comp === choice[0]) {
                 rockBtn.classList.add('compHand')
-                setTimeout(() => rockBtn.classList.remove('compHand'), 2000);
+                comments.innerText = `Comp turn`
+                setTimeout(() => {
+                    comments.innerText = `Your turn`
+                    rockBtn.classList.remove('compHand')
+                }, 2000);
                 pScore++;
                 return "Paper wrap Rock"
+
             } else if (player === choice[1] && comp === choice[2]) {
                 scissorsBtn.classList.add('compHand')
-                setTimeout(() => scissorsBtn.classList.remove('compHand'), 2000);
+                comments.innerText = `Comp turn`
+                setTimeout(() => {
+                    comments.innerText = `Your turn`
+                    scissorsBtn.classList.remove('compHand')
+                }, 2000);
                 cScore++;
                 return "Scissors cut Paper"
+
             } else if (player === choice[2] && comp === choice[0]) {
                 rockBtn.classList.add('compHand')
-                setTimeout(() => rockBtn.classList.remove('compHand'), 2000);
+                comments.innerText = `Comp turn`
+                setTimeout(() => {
+                    comments.innerText = `Your turn`
+                    rockBtn.classList.remove('compHand')
+                }, 2000);
                 cScore++;
                 return "Rock beats Scissors"
+
             } else if (player === choice[2] && comp === choice[1]) {
                 paperBtn.classList.add('compHand')
-                setTimeout(() => paperBtn.classList.remove('compHand'), 2000);
+                comments.innerText = `Comp turn`
+                setTimeout(() => {
+                    comments.innerText = `Your turn`
+                    paperBtn.classList.remove('compHand')
+                }, 2000);
                 pScore++;
                 return "Scissors cut Paper"
             }
@@ -113,6 +142,7 @@ input_rounds.addEventListener("keydown", function (e) {
         scissorsBtn.classList.add('handAnime');
         rockBtn.classList.add('handAnime');
         paperBtn.classList.add('handAnime')
+        comments.innerText = `Your turn`
     }
 })
 
@@ -122,6 +152,9 @@ input_rounds.addEventListener("keydown", function (e) {
 
 
 
+// if (!input_rounds.value) {
+//     input_rounds.classList.add('vibrate')
+// }
 
         // console.log(typeof (input_rounds.value))
         // console.log(computerSelection)
