@@ -27,6 +27,9 @@ let animate = () => {
 // Animation if player press enter
 input_rounds.addEventListener("keydown", function (e) {
     if (e.key === 'Enter') {
+        // hide android keyboard
+        this.blur()
+
         animate()
         setTimeout(() => {
             comments.innerText = `Your turn`
@@ -164,6 +167,7 @@ function game() {
         }
 
     }
+    clearTimeout();
 }
 
 
