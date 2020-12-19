@@ -23,12 +23,41 @@ body{
     left: 8rem;
     bottom: 1rem;
     transition: 0.5s;
-    color: #8f384d;
+    color: #583d72;
 }
 
 .rotate{
     transform: rotate(360deg);
 }
+
+.vibrate{
+    animation:vibrate-1 .3s linear infinite both;
+}
+
+@keyframes vibrate-1{
+    0%{-webkit-transform:translate(0);
+        transform:translate(0)
+    }
+    20%{-webkit-transform:translate(-2px,2px);
+        transform:translate(-2px,2px)
+    }
+    40%{
+        -webkit-transform:translate(-2px,-2px);
+        transform:translate(-2px,-2px)
+    }
+    60%{
+        -webkit-transform:translate(2px,2px);
+        transform:translate(2px,2px)
+    }
+    80%{
+        -webkit-transform:translate(2px,-2px);
+        transform:translate(2px,-2px)
+    }
+    100%{-webkit-transform:translate(0);
+        transform:translate(0)
+    }
+}
+
 
 #main{
     width: 40%;
@@ -84,10 +113,12 @@ body{
 .far{
     font-size: 2.3rem;
     transition: 0.3s;
+    
 }
 
 .far:hover{
     color:#59886b;
+    
 }
 
 #scores{
@@ -118,7 +149,7 @@ body{
 }
 
 #final_score{
-    transition: 1s;
+    /* transition: 1s; */
     color: #583d72;
     margin-top: 1.5rem;
     height: 1rem;

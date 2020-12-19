@@ -153,8 +153,11 @@ function game() {
         //Display final result 
         if (input_rounds.value == 0) {
             finalScore.textContent = result
-            setTimeout(() => finalScore.textContent = pScore > cScore ? `You Won!` : pScore === cScore ? `TIE` : `You Lose`
-                , 2000)
+            setTimeout(() => {
+                comments.innerText = null;
+                finalScore.textContent = pScore > cScore ? `You Won!` : pScore === cScore ? `TIE` : `You Lose`
+                reload.classList.add('vibrate');
+            }, 2000)
         }
 
     }
