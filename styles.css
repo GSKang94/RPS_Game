@@ -117,8 +117,13 @@ body{
 }
 
 .far:hover{
-    color:#59886b;
-    
+    color:#59886b;  
+}
+
+@media (hover: hover) {
+    .far:hover {
+        color:#59886b; /* solves sticky problem on touch screen*/
+    }
 }
 
 #scores{

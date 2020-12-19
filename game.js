@@ -167,7 +167,6 @@ function game() {
         }
 
     }
-    clearTimeout();
 }
 
 
