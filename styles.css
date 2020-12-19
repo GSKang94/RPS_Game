@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Sniglet&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -7,6 +9,8 @@
     -moz-box-sizing: border-box;
      box-sizing: border-box;
      scroll-behavior:smooth;
+     font-family: 'Sniglet', cursive;
+
 }
 body{
     background-color: #ffe9d6;
@@ -33,32 +37,42 @@ body{
 }
 
 #input_rounds{
-    width: 10%;
+    width: 30%;
     margin: 0 auto;
     margin-top: 1rem;
     text-align: center;
     border-radius: 6px;
     border: none;
     height: 2rem;
-    font-size: 1.5rem;
+    font-size: 1.1rem;
+    transition: 0.5s;
+    background-color: #eff8ff;
 }
+#input_rounds:focus::placeholder {
+    color: transparent;
+  }
 
 #input_rounds:focus{
     outline: none;
+    width: 10%;
 }
+
 #buttons{
     display: flex;
     width: 35%;
     justify-content: space-between;
     margin: 0 auto;
     margin-top: 3rem;
-    /* transition: background-image 0.3s ease-out; */
 }
 
 .far{
     font-size: 2rem;
+    transition: 0.3s;
 }
 
+.far:hover{
+    color:#654062;
+}
 #scores{
     display: flex;
     justify-content: space-between;
@@ -66,16 +80,43 @@ body{
     margin: 0 auto;
     margin-top: 3rem;
 }
-/* .box{
+
+.handAnime{
+    transform: translateY(-40px) scale(1.4);;
+}
+
+.box{
     transition: opacity .5s linear;  
     transform:translate(0);
     opacity: 1;
-} */
+}
 
-/* .fadeOut {
+ .fadeOut {
   opacity: 0; 
 }
 
-.incSize{
-    -webkit-transform: scale(1.5);
+
+/* .vibrate {
+	-webkit-animation: vibrate-1 0.3s linear infinite both;
+	        animation: vibrate-1 0.3s linear infinite both;
 } */
+
+.compHand{
+    transition:color 0.5s 1s;
+    color: crimson;
+}
+
+
+
+#final_score{
+    transition: 1s;
+}
+
+/* #final_score{
+    border: blue 2px solid;
+    height: 3rem;
+} */
+
+/* .incSize{
+    -webkit-transform: scale(1.5);
+}  */

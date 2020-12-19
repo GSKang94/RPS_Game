@@ -1,15 +1,20 @@
-let chooseRounds = document.getElementById('input_rounds');
+let input_rounds = document.getElementById('input_rounds');
 let playerScore = document.getElementById('player_score');
 let compScore = document.getElementById('comp_score');
+// let comment = document.getElementById('comment');
 let finalScore = document.getElementById('final_score');
 
 let rockBtn = document.getElementById('rock_btn');
 let paperBtn = document.getElementById('paper_btn');
 let scissorsBtn = document.getElementById('scissors_btn');
 
-
 let choice = ['rock', 'paper', 'scissors'];
 let playerSelection;
+
+// if (!input_rounds.value) {
+//     input_rounds.classList.add('vibrate')
+// }
+
 
 rockBtn.onclick = () => {
     playerSelection = choice[0]
@@ -31,7 +36,7 @@ let cScore = 0;
 function game() {
 
     // check user selected rounds
-    if (chooseRounds.value > 1) {
+    if (input_rounds.value > 0) {
 
         // Pick random choice
         function computerPlay() {
@@ -41,60 +46,95 @@ function game() {
         // Assign random choice to computer
         let computerSelection = computerPlay();
 
+        // core logic
         function playRound(player, comp) {
             if (player === comp) {
-                return "Same choice Try Again"
+                return `You both chose ${computerSelection}`
             } else if (player === choice[0] && comp === choice[1]) {
+                paperBtn.classList.add('compHand')
+                setTimeout(() => paperBtn.classList.remove('compHand'), 2000);
                 cScore++;
                 return "Paper wrap Rock"
             } else if (player === choice[0] && comp === choice[2]) {
+                scissorsBtn.classList.add('compHand')
+                setTimeout(() => scissorsBtn.classList.remove('compHand'), 2000);
                 pScore++;
                 return "Rock beats Scissors"
             } else if (player === choice[1] && comp === choice[0]) {
+                rockBtn.classList.add('compHand')
+                setTimeout(() => rockBtn.classList.remove('compHand'), 2000);
                 pScore++;
                 return "Paper wrap Rock"
             } else if (player === choice[1] && comp === choice[2]) {
+                scissorsBtn.classList.add('compHand')
+                setTimeout(() => scissorsBtn.classList.remove('compHand'), 2000);
                 cScore++;
                 return "Scissors cut Paper"
             } else if (player === choice[2] && comp === choice[0]) {
+                rockBtn.classList.add('compHand')
+                setTimeout(() => rockBtn.classList.remove('compHand'), 2000);
                 cScore++;
                 return "Rock beats Scissors"
             } else if (player === choice[2] && comp === choice[1]) {
+                paperBtn.classList.add('compHand')
+                setTimeout(() => paperBtn.classList.remove('compHand'), 2000);
                 pScore++;
                 return "Scissors cut Paper"
             }
 
         }
+        // call this function
         let result = playRound(playerSelection, computerSelection)
-        chooseRounds.value--;
 
-        playerScore.textContent = pScore;
-        compScore.textContent = cScore;
+        // reduce value after every round
+        input_rounds.value--;
 
-        // console.log(typeof (chooseRounds.value))
-        console.log(computerSelection)
-        console.log(result)
-    } else if (chooseRounds.value == 1) {
-        chooseRounds.value--;
-        return finalScore.textContent = pScore > cScore ? `WINNER` : pScore === cScore ? `TIE` : `LOSER`;
+        // Update value
+        setTimeout(() => {
+            finalScore.textContent = result
+            playerScore.textContent = pScore;
+            compScore.textContent = cScore;
+        }, 2000);
+
+        //Display final result 
+        if (input_rounds.value == 0) {
+            finalScore.textContent = result
+            setTimeout(() => finalScore.textContent = pScore > cScore ? `You Won!` : pScore === cScore ? `TIE` : `You Lose`
+                , 2000)
+        }
+
     }
 }
 
-// chooseRounds.addEventListener("keydown", function (e) {
-//     if (e.code === 'Enter') {
-//         chooseRounds.classList.add('fadeOut');
-//         scissorsBtn.classList.add('incSize');
-//         rockBtn.classList.add('incSize');
-//         paperBtn.classList.add('incSize')
-//     }
-// })
+// Animation if player press enter
+input_rounds.addEventListener("keydown", function (e) {
+    if (e.code === 'Enter') {
+        input_rounds.classList.add('fadeOut');
+        scissorsBtn.classList.add('handAnime');
+        rockBtn.classList.add('handAnime');
+        paperBtn.classList.add('handAnime')
+    }
+})
 
 
+
+
+
+
+
+
+        // console.log(typeof (input_rounds.value))
+        // console.log(computerSelection)
+        // console.log(result)
+
+// let li = document.createElement('li');
+        // li.innerText = `${result}`
+        // ul.appendChild(li)
 
 // Player enter no. of game rounds
-// chooseRounds.addEventListener("keydown", function (e) {
+// input_rounds.addEventListener("keydown", function (e) {
 //     if (e.code === 'Enter')
-//         for (let i = 1; i <= chooseRounds.value; i++) {
+//         for (let i = 1; i <= input_rounds.value; i++) {
 //             give time to update and render
 //             setTimeout(game, 100);
 //             clearTimeout()
@@ -131,13 +171,13 @@ function game() {
 
 
 
-// console.log(chooseRounds)
+// console.log(input_rounds)
 
 // let btn = document.getElementById('btn');
 
 // btn.addEventListener("click", function () {
-// console.log(chooseRounds.value.KeyboardEvent.code)
-// for (let i = 1; i <= chooseRounds.value; i++) {
+// console.log(input_rounds.value.KeyboardEvent.code)
+// for (let i = 1; i <= input_rounds.value; i++) {
 //     game()
 // }
 // })
