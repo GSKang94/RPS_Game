@@ -116,9 +116,9 @@ body{
     
 }
 
-.far:hover{
+/* .far:hover{
     color:#59886b;  
-}
+} */
 
 @media (hover: hover) {
     .far:hover {
