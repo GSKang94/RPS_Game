@@ -10,7 +10,7 @@
      box-sizing: border-box;
      scroll-behavior:smooth;
      font-family: 'Sniglet', cursive;
-
+     user-select: none;
 }
 
 body{
