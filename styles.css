@@ -116,10 +116,6 @@ body{
     
 }
 
-/* .far:hover{
-    color:#59886b;  
-} */
-
 @media (hover: hover) {
     .far:hover {
         color:#59886b; /* solves sticky problem on touch screen*/
@@ -209,24 +205,3 @@ body{
     
 }
 
-
-
-
-
-
-
-
-/* .vibrate {
-	-webkit-animation: vibrate-1 0.3s linear infinite both;
-	        animation: vibrate-1 0.3s linear infinite both;
-} */
-
-
-/* #final_score{
-    border: blue 2px solid;
-    height: 3rem;
-} */
-
-/* .incSize{
-    -webkit-transform: scale(1.5);
-}  */
