@@ -15,13 +15,16 @@
 
 body{
     background-color: #ffe9d6;
+    -moz-transform: scale(1.20);
+    margin-top: 3rem;
+    zoom: 110%;
 }
 
 .fa-redo-alt{
-    position: relative;
+    position: absolute;
     font-size: 1.2rem;
-    left: 8rem;
-    bottom: 1rem;
+    right: 10px;
+    top:10px;
     transition: 0.5s;
     color: #583d72;
 }
@@ -60,11 +63,12 @@ body{
 
 
 #main{
+    position: relative;
     width: 40%;
     margin: 0 auto;
     background-color: #fa9579;
     text-align: center;
-    margin-top: 1rem;
+    /* margin-top: 1rem; */
     padding-top: 1rem;
     padding-bottom: 1rem;
     border-radius: 5px;
@@ -182,7 +186,6 @@ body{
 
     #main{
         width: 90%;
-        margin-top: 3rem;
         padding-bottom: 2.7rem;
      }
     
@@ -205,3 +208,18 @@ body{
     
 }
 
+@media only screen and (min-width: 480px) and (max-width: 979px) {
+    h1{
+        font-size: 2.5rem;
+    }
+
+    #main{
+        width: 70%;
+        padding: 2rem 0;
+     }
+    
+    #hands{
+        width: 40%;
+    }
+
+}
