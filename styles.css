@@ -155,9 +155,10 @@ body{
 
 #final_score{
     /* transition: 1s; */
-    color: #583d72;
+    color: #810034;
     margin-top: 1.5rem;
-    height: 1rem;
+    font-size: 1.3rem;
+    height: 1.3rem;
 }
 
 
@@ -165,6 +166,7 @@ body{
     position: relative;
     bottom: 45px;
     font-size: 1.1rem;
+    height: 1.1rem;
 }
 
 #player_score,#comp_score{
@@ -222,4 +224,8 @@ body{
         width: 40%;
     }
 
+}
+
+.disable-click{
+    pointer-events: none;
 }

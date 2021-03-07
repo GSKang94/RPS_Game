@@ -26,10 +26,9 @@ let animate = () => {
 
 // Animation if player press enter
 input_rounds.addEventListener("keydown", function (e) {
-    if (e.key === 'Enter') {
+    if (e.key === 'Enter' && input_rounds.value) {
         // hide android keyboard
         this.blur()
-
         animate()
         setTimeout(() => {
             comments.innerText = `Your turn`
@@ -37,7 +36,6 @@ input_rounds.addEventListener("keydown", function (e) {
         comments.innerText = `Ready`
     }
 })
-
 
 let choice = ['rock', 'paper', 'scissors'];
 let playerSelection;
@@ -55,96 +53,62 @@ scissorsBtn.onclick = () => {
     game()
 }
 
-// Store Scores
-let pScore = 0;
-let cScore = 0;
 
 function game() {
+    // Store Scores
+    let pScore = 0;
+    let cScore = 0;
 
-    animate();
     // check user selected rounds
-    if (input_rounds.value > 0) {
-
-        // Pick random choice
-        function computerPlay() {
-            return choice[Math.floor(Math.random() * 3)];
-        }
+    if (input_rounds.value) {
 
         // Assign random choice to computer
-        let computerSelection = computerPlay();
+        let computerSelection = () => {
+            return choice[Math.floor(Math.random() * 3)];
+        }
 
         // core logic
         function playRound(player, comp) {
 
             if (player === comp) {
-                comments.innerText = `Comp turn`
-                setTimeout(() => comments.innerText = `Your turn`, 2000)
-                return `You both chose ${computerSelection}`
+                let stringToVar = eval(playerSelection + "Btn");
+                updateUi(stringToVar)
+                return `You both chose ${playerSelection}`
 
             } else if (player === choice[0] && comp === choice[1]) {
-                paperBtn.classList.add('compHand')
-                comments.innerText = `Comp turn`
-                setTimeout(() => {
-                    comments.innerText = `Your turn`
-                    paperBtn.classList.remove('compHand')
-                }, 2000);
+                updateUi(paperBtn)
                 cScore++;
                 return "Paper wrap Rock"
 
             } else if (player === choice[0] && comp === choice[2]) {
-                scissorsBtn.classList.add('compHand')
-                comments.innerText = `Comp turn`
-                setTimeout(() => {
-                    comments.innerText = `Your turn`
-                    scissorsBtn.classList.remove('compHand')
-                }, 2000);
+                updateUi(scissorsBtn)
                 pScore++;
                 return "Rock beats Scissors"
 
             } else if (player === choice[1] && comp === choice[0]) {
-                rockBtn.classList.add('compHand')
-                comments.innerText = `Comp turn`
-                setTimeout(() => {
-                    comments.innerText = `Your turn`
-                    rockBtn.classList.remove('compHand')
-                }, 2000);
+                updateUi(rockBtn)
                 pScore++;
                 return "Paper wrap Rock"
 
             } else if (player === choice[1] && comp === choice[2]) {
-                scissorsBtn.classList.add('compHand')
-                comments.innerText = `Comp turn`
-                setTimeout(() => {
-                    comments.innerText = `Your turn`
-                    scissorsBtn.classList.remove('compHand')
-                }, 2000);
+                updateUi(scissorsBtn)
                 cScore++;
                 return "Scissors cut Paper"
 
             } else if (player === choice[2] && comp === choice[0]) {
-                rockBtn.classList.add('compHand')
-                comments.innerText = `Comp turn`
-                setTimeout(() => {
-                    comments.innerText = `Your turn`
-                    rockBtn.classList.remove('compHand')
-                }, 2000);
+                updateUi(rockBtn)
                 cScore++;
                 return "Rock beats Scissors"
 
             } else if (player === choice[2] && comp === choice[1]) {
-                paperBtn.classList.add('compHand')
-                comments.innerText = `Comp turn`
-                setTimeout(() => {
-                    comments.innerText = `Your turn`
-                    paperBtn.classList.remove('compHand')
-                }, 2000);
+                updateUi(paperBtn)
                 pScore++;
                 return "Scissors cut Paper"
             }
 
         }
         // call this function
-        let result = playRound(playerSelection, computerSelection)
+        let result = playRound(playerSelection, computerSelection())
 
         // reduce value after every round
         input_rounds.value--;
@@ -163,8 +127,20 @@ function game() {
                 comments.innerText = null;
                 finalScore.textContent = pScore > cScore ? `You Won!` : pScore === cScore ? `TIE` : `You Lose`
                 reload.classList.add('vibrate');
+                document.getElementById("hands").classList.add("disable-click");
             }, 2000)
         }
-
     }
+}
+
+let updateUi = (arg) => {
+    // console.log(typeof arg);
+    arg.classList.add('compHand')
+    comments.innerText = `Comp turn`
+    document.getElementById("hands").classList.add("disable-click");
+    setTimeout(() => {
+        document.getElementById("hands").classList.remove("disable-click");
+        comments.innerText = `Your turn`
+        arg.classList.remove('compHand')
+    }, 2000);
 }
