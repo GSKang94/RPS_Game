@@ -1,49 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Check your fate</title>
-    <script src="https://kit.fontawesome.com/a5e371ee46.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="styles.css">
-</head>
+    <script
+      src="https://kit.fontawesome.com/a5e371ee46.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
 
-<body>
+  <body>
+    <div id="background"></div>
     <div id="main">
-        <h1>Rock Paper Scissors<span><i id="reload" class="fas fa-redo-alt"></i></span></h1>
+      <h1>
+        Rock Paper Scissors<span
+          ><i id="reload" class="fas fa-redo-alt"></i
+        ></span>
+      </h1>
 
-        <div id="rounds">
-            <!-- <label for="rounds">Enter rounds</label> -->
-            <input class="box" type="text" name="rounds" id="input_rounds" required minlength="1" maxlength="2"
-                placeholder="Enter rounds" autocomplete="off">
-        </div>
-        <div id="comments">
+      <div id="rounds">
+        <input
+          class="box"
+          type="text"
+          name="rounds"
+          id="input_rounds"
+          required
+          minlength="1"
+          maxlength="2"
+          placeholder="Enter rounds"
+          autocomplete="off"
+        />
+      </div>
+      <div id="comments"></div>
+      <div id="hands">
+        <i id="rock_btn" class="far fa-hand-rock"></i>
+        <i id="paper_btn" class="far fa-hand-paper"></i>
+        <i id="scissors_btn" class="far fa-hand-scissors"></i>
+      </div>
 
+      <div id="scores">
+        <div>
+          <h2>Player score</h2>
+          <h3 id="player_score">0</h3>
         </div>
-        <div id="hands">
-            <i id="rock_btn" class="far fa-hand-rock"></i>
-            <i id="paper_btn" class="far fa-hand-paper"></i>
-            <i id="scissors_btn" class="far fa-hand-scissors"></i>
+        <div>
+          <h2>Comp score</h2>
+          <h3 id="comp_score">0</h3>
         </div>
+      </div>
 
-        <div id="scores">
-            <div>
-                <h2>Player score</h2>
-                <h3 id="player_score">0</h3>
-            </div>
-            <div>
-                <h2>Comp score</h2>
-                <h3 id="comp_score">0</h3>
-            </div>
-        </div>
-
-        <div id="final_score"></div>
+      <div id="final_score">Please enter game rounds</div>
     </div>
 
-
     <script type="text/javascript" src="game.js"></script>
-
-</body>
-
+  </body>
 </html>
