@@ -54,12 +54,11 @@ scissorsBtn.onclick = () => {
   playerSelection = choice[2];
   game();
 };
+// Store Scores
+let pScore = 0;
+let cScore = 0;
 
 function game() {
-  // Store Scores
-  let pScore = 0;
-  let cScore = 0;
-
   // check user selected rounds
   if (input_rounds.value) {
     // Assign random choice to computer
@@ -119,6 +118,9 @@ function game() {
         comments.innerText = null;
         finalScore.textContent =
           pScore > cScore ? `You Won!` : pScore === cScore ? `TIE` : `You Lose`;
+        if (finalScore.textContent === "You Won!") {
+          confetti.start();
+        }
         reload.classList.add("vibrate");
         document.getElementById("hands").classList.add("disable-click");
       }, 2000);
