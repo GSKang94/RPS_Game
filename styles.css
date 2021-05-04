@@ -34,7 +34,7 @@ body {
   right: 10px;
   top: 10px;
   transition: 0.3s;
-  color: #583d72;
+  color: #810034;
 }
 .fa-redo-alt:hover {
   transform: scale(1.3);
@@ -111,13 +111,8 @@ body {
   background-color: #eff8ff;
 }
 
-#input_rounds:focus::placeholder {
-  color: transparent;
-}
-
 #input_rounds:focus {
   outline: none;
-  width: 10%;
 }
 
 #hands {

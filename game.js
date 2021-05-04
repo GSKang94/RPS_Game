@@ -24,14 +24,16 @@ let animate = () => {
   paperBtn.classList.add("handAnime");
 };
 
+document.getElementById("hands").classList.add("disable-click");
+
 // Animation if player press enter
 input_rounds.addEventListener("keydown", function (e) {
   if (e.key === "Enter" && input_rounds.value) {
+    document.getElementById("hands").classList.remove("disable-click");
     // hide android keyboard
     this.blur();
     animate();
     finalScore.innerText = "";
-
     setTimeout(() => {
       comments.innerText = `Your turn`;
     }, 1000);
@@ -118,9 +120,6 @@ function game() {
         comments.innerText = null;
         finalScore.textContent =
           pScore > cScore ? `You Won!` : pScore === cScore ? `TIE` : `You Lose`;
-        if (finalScore.textContent === "You Won!") {
-          confetti.start();
-        }
         reload.classList.add("vibrate");
         document.getElementById("hands").classList.add("disable-click");
       }, 2000);
